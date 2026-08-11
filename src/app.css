@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+  --font-timer: "Century Gothic", sans-serif;
+  --font-split: "Segoe UI", sans-serif;
+  --font-title: "Georgia", serif;
+  --font-system-sans: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+
+  font-family: "Segoe UI", sans-serif;
+}
+
+.scrollbar-hidden {
+  scrollbar-width: none;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
