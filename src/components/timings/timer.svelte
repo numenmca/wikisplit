@@ -44,6 +44,11 @@
     return extractTimesFromMs(props.controller.getLRT());
   });
 
+  let rtaExtracted = $derived.by(() => {
+    now;
+    return extractTimesFromMs(props.controller.getRTA());
+  });
+
   const runningState = $derived(
     props.controller.isRunning()
       ? "running"
@@ -135,6 +140,29 @@
       <div class="text-4xl">{lrtExtracted[2].toString().padStart(2, "0")}</div>
     </div>
   </div>
+
+  {#if props.controller.isEnded()}
+    <div class="bg-[#0f0f0f] mt-px">
+      <div
+        class="w-full h-full bg-linear-to-b flex justify-end items-end font-timer font-bold px-2 py-0 -mt-px from-[#aaaaaa] to-[#888888]"
+        style="-webkit-background-clip: text; -webkit-text-fill-color: transparent;"
+      >
+        {#if rtaExtracted[0] > 0}
+          <div class="text-3xl">{rtaExtracted[0].toString()}</div>
+          <div class="text-3xl">:</div>
+        {/if}
+        <div class="text-3xl">
+          {rtaExtracted[0] > 0
+            ? rtaExtracted[1].toString().padStart(2, "0")
+            : rtaExtracted[1].toString()}
+        </div>
+        <div class="text-2xl">.</div>
+        <div class="text-2xl">
+          {rtaExtracted[2].toString().padStart(2, "0")}
+        </div>
+      </div>
+    </div>
+  {/if}
 
   <div
     class="bg-linear-to-b from-[#181818] to-[#111111] flex justify-between px-2 py-1.25"
