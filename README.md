@@ -1,3 +1,4 @@
 # wikisplit
+i made this 99% without ai because i wanna start making stuff again without having a pea brain
 
-https://en.wikipedia.org/w/api.php?redirects=1&disableeditsection=true&format=json&origin=*&action=parse&prop=text&useskin=vector&page=Formal_system
+production: https://wikisplit.numenmc.me
